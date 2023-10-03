@@ -17,5 +17,5 @@ def about(request):
     phone = "8-923-600-01-02"
     email = "av_tolm@mail.ru"
 
-    text = f"Имя: {firstname}\nОтчество: {otchestvo}\nФамилия: {secondname}\nТелефон: {secondname}\nemail: {secondname}"
+    text = f"Имя: {firstname} Отчество: {otchestvo} Фамилия: {secondname} Телефон: {secondname} email: {secondname}"
     return HttpResponse(text)
