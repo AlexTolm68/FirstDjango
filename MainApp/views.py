@@ -17,6 +17,19 @@ def about(request):
     phone = "8-923-600-01-02"
     email = "av_tolm@mail.ru"
 
-    text = f"Имя: {firstname} Отчество: {otchestvo} Фамилия: {secondname} Телефон: {secondname} email: {secondname}"
+    text = f"""<h1>Имя: {firstname} Отчество: {otchestvo} Фамилия: {secondname} Телефон: {phone} email: {email}</h1>"""
     return HttpResponse(text)
+
+items = [
+    {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
+    {"id": 2, "name": "Куртка кожаная", "quantity": 2},
+    {"id": 5, "name": "Coca-cola 1 литр", "quantity": 12},
+    {"id": 7, "name": "Картофель Фри", "quantity": 0},
+    {"id": 8, "name": "Кепка", "quantity": 124}
+]
+
+def item(request):
+
+    return HttpResponse()
+
 
