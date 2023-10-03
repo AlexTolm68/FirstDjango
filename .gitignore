@@ -1,0 +1,12 @@
+*env/
+__pucache__/
+.vscode
+.idea/
+*.рус
+db.*
+
+
+
+
+
+
