@@ -19,3 +19,4 @@ def about(request):
 
     text = f"Имя: {firstname} Отчество: {otchestvo} Фамилия: {secondname} Телефон: {secondname} email: {secondname}"
     return HttpResponse(text)
+
