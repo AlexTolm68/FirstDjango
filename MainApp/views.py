@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 
 
 # Create your views here.
 
 
 def home(request):
-    text = f"""<h1> "Изучаем django" </h1>
-    <strong> Автор </strong >: <i> Шиховцев Вадим Викторович </i>"""
-    return HttpResponse(text)
+    # text = f"""<h1> "Изучаем django" </h1>
+    # <strong> Автор </strong >: <i> Шиховцев Вадим Викторович </i>"""
+    return render(request, "index.html")
 
 
 def about(request):
@@ -41,7 +41,7 @@ def get_items(request, id_item):
         text = f"""<h> id: {id_item} name: {name} quantity: {quantity}</h>"""
     except UnboundLocalError:
         text = f"Товар с id={id_item} не найден"
-
+    # return HttpResponseNotFound(f"Товар с id={id_item} не найден")
     return HttpResponse(text)
 
 
