@@ -12,14 +12,13 @@ def home(request):
 
 
 def about(request):
-    firstname = "Александр"
-    secondname = "Толмачев"
-    otchestvo = "Владимирович"
-    phone = "8-923-600-01-02"
-    email = "av_tolm@mail.ru"
+    context = {"firstname": "Александр",
+               "secondname": "Толмачев",
+               "otchestvo": "Владимирович",
+               "phone": "8-923-600-01-02",
+               "email": "mail@mail.ru"}
 
-    text = f"""<h>Имя: {firstname}, Отчество: {otchestvo}, Фамилия: {secondname}, Телефон: {phone}, email: {email}</h>"""
-    return HttpResponse(text)
+    return render(request, "about.html", context)
 
 
 items = [
@@ -32,26 +31,14 @@ items = [
 
 
 def get_items(request, id_item):
-    try:
-        for item in items:
-            if item["id"] == id_item:
-                name = item["name"]
-                quantity = item["quantity"]
-                break
-        text = f"""<h> id: {id_item} name: {name} quantity: {quantity}</h>"""
-    except UnboundLocalError:
-        text = f"Товар с id={id_item} не найден"
-    # return HttpResponseNotFound(f"Товар с id={id_item} не найден")
-    return HttpResponse(text)
+    for item in items:
+        if item["id"] == id_item:
+            return render(request, "items.html",
+                          {"id_item": id_item,
+                           "name": item["name"],
+                           "quantity": item["quantity"]})
+    return HttpResponseNotFound(f"Товар с id={id_item} не найден")
 
 
 def list_items(request):
-    text = ""
-    for item in items:
-        id_item = item["id"]
-        name = item["name"]
-        quantity = item["quantity"]
-        goods = f"""<h> id: {id_item} name: {name} quantity: {quantity}</h> <a href="/items/{id_item}">id:{id_item}</a>,  
-        \n"""
-        text += goods
-    return HttpResponse(text)
+    return render(request, "items_list.html", {"goods": items})

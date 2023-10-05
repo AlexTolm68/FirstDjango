@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+</head>
+<body>
+<aside class="left">
+  <ul>
+    <li><a class="active" href="/">Home</a></li>
+    <li><a href="/items">Items</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</aside>
+<h2>Список товаров</h2>
+    <ol>
+        {% for item in goods %}
+            {% if item.quantity == 0 %}
+                <li>
+                <a href="/items/{{ item.id }}"> id: {{item.id}}, name: {{item.name}}, quantity: товар отсутствует</a>
+                </li>
+            {% else %}
+                <li>
+                <a href="/items/{{ item.id }}"> id: {{item.id}}, name: {{item.name}}, quantity: {{item.quantity}}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</body>
+</html>
