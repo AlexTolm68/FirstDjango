@@ -35,6 +35,7 @@ def get_items(request, id_item):
         return render(request, "items.html",
                       {"name": item.name,
                        "brand": item.brand,
+                       "description": item.description,
                        "count": item.count})
     except ObjectDoesNotExist:
         return HttpResponseNotFound(f"Товар с id={id_item} не найден в БД")
