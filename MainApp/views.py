@@ -30,17 +30,16 @@ def about(request):
 
 
 def get_items(request, id_item):
-    try:
-        item = Item.objects.get(pk=id_item)
-        return render(request, "items.html",
-                      {"name": item.name,
-                       "brand": item.brand,
-                       "description": item.description,
-                       "count": item.count})
-    except ObjectDoesNotExist:
-        return HttpResponseNotFound(f"Товар с id={id_item} не найден в БД")
 
-    # return HttpResponseNotFound(f"Товар с id={id_item} не найден")
+    try:
+        item = Item.objects.get(id=id_item)
+    except ObjectDoesNotExist:
+        return HttpResponseNotFound(f'Item with id={id_item} not found')
+    else:
+        context = {
+            "item": item
+        }
+        return render(request, "items.html", context)
 
 
 def list_items(request):
