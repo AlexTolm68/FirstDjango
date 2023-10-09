@@ -1,18 +1,11 @@
 {% extends 'base.html' %}
 
 {% block style %}
-    <title>Index</title>
+    <title>Item-page</title>
 {% endblock %}
 {% block content %}
 {% include 'header.html' %}
 <main>
-<!--    <ol>-->
-<!--        <li>Наименование товара - {{ name }}-->
-<!--        <li>Наименование бренда - {{ brand }}-->
-<!--        <li>Описание товара - {{ description }}-->
-<!--        <li>Количество товара - {{ count }}-->
-<!--    </ol>-->
-<!--<p><a href="{% url 'items-list' %}"> Назад к списку товаров </a></p>-->
     <h1>{{ item.name }} </h1>
     <div>
         Количество: {{ item.count | default:"Товар отсутствует на складе" }}
@@ -21,7 +14,7 @@
         Описание: {{ item.description }}
     </div>
     <br>
-    <a href="/items"> Назад к списку товаров </a>
+    <p><a href="{% url 'items-list' %}"> Назад к списку товаров </a></p>
 </main>
 {% include 'footer.html' %}
 {% endblock %}
