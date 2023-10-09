@@ -1,0 +1,9 @@
+.benefits {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits li {
+    margin: 10px 0;
+    font-weight: bold;
+}

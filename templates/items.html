@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>"items"</title>
-</head>
-<body>
-<aside class="left">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/items">Items</a></li>
-    <li><a href="/about">About</a></li>
-  </ul>
-</aside>
-<ol>
-<li>Наименование товара - {{ name }}
-<li>Наименование бренда - {{ brand }}
-<li>Описание товара - {{ description }}
-<li>Количество товара - {{ count }}
-</ol>
-<p><a href="/items"> Назад к списку товаров </a></p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block style %}
+    <title>Index</title>
+{% endblock %}
+{% block content %}
+{% include 'header.html' %}
+<main>
+    <ol>
+        <li>Наименование товара - {{ name }}
+        <li>Наименование бренда - {{ brand }}
+        <li>Описание товара - {{ description }}
+        <li>Количество товара - {{ count }}
+    </ol>
+<p><a href="{% url 'items-list' %}"> Назад к списку товаров </a></p>
+</main>
+{% include 'footer.html' %}
+{% endblock %}

@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-<aside class="left">
-  <ul>
-    <li><a class="active" href="/">Home</a></li>
-    <li><a href="/items">Items</a></li>
-    <li><a href="/about">About</a></li>
-  </ul>
-</aside>
-<main class="content">
+{% extends 'base.html' %}
+
+{% block style %}
+    <title>Index</title>
+{% endblock %}
+{% block content %}
+{% include 'header.html' %}
+<main>
 <h1> Главная страница сайта </h1>
 <h2> "Изучаем django" </h2>
-    <p> Автор: Шиховцев Вадим Викторович </p>
-<a href="/items"> Список товаров </a>
+    <p> Автор: Толмачев Александр Владимирович </p>
+<a href="{% url 'items-list' %}"> Список товаров </a>
 </main>
-</body>
-</html>
+{% include 'footer.html' %}
+{% endblock %}
 
 
 
